@@ -5,7 +5,7 @@ Project based on Udemy course: Professionmal Ruby on Rails coding course - with 
 ## Key requirement: company needs documentation that salaried employees did or did not get overtime each week
 
 - Post -> date:date rationale:text
-- User -> Devise
+x User -> Devise
 - AdminUser -> STI
 
 ## Features:
