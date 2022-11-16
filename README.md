@@ -38,8 +38,7 @@ and replace
 `local   all postgres peer` with `local   all postgres md5`
 
 ```
-bin/rails db:create
-bin/rails db:migrate
+bundle exec rake db:setup
 
 rspec
 ```
