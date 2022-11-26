@@ -9,7 +9,8 @@ describe User, type: :model do
       password: 'testtest',
       password_confirmation: 'testtest',
       first_name: 'Test',
-      last_name: 'Test')
+      last_name: 'Test'
+    )
   end
 
   describe 'creation' do
@@ -27,7 +28,7 @@ describe User, type: :model do
 
   describe 'custom name methods' do
     it 'has a full name method that combines first and last name' do
-      expect(@user.full_name).to eq("TEST, TEST")
+      expect(@user.full_name).to eq('TEST, TEST')
     end
   end
 end
