@@ -46,5 +46,5 @@ end
 
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'devise', '~> 4.8', '>= 4.8.1'
-gem 'cssbundling-rails'gem 'jquery-rails'
-
+gem 'cssbundling-rails'
+gem 'jquery-rails'
