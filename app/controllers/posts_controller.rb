@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
@@ -5,8 +7,7 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @post = Post.new
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
     end
   end
 
-private
+  private
 
   def post_params
     params.require(:post).permit(:date, :rationale)

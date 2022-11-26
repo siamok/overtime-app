@@ -3,7 +3,10 @@
 require 'rails_helper'
 
 describe 'navigate' do
-  let(:user) { User.create(email: 'test@test.com', password: 'testtest', password_confirmation: 'testtest', first_name: 'Test', last_name: 'Test') }
+  let(:user) do
+    User.create(email: 'test@test.com', password: 'testtest', password_confirmation: 'testtest', first_name: 'Test',
+                last_name: 'Test')
+  end
 
   before do
     login_as(user, scope: :user)
@@ -42,18 +45,18 @@ describe 'navigate' do
 
     it 'can be created from new form page' do
       fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: "Rationale"
-      click_on "Save"
+      fill_in 'post[rationale]', with: 'Rationale'
+      click_on 'Save'
 
-      expect(page).to have_content("Rationale")
+      expect(page).to have_content('Rationale')
     end
 
     it 'will have a user associated with it' do
       fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: "User Association"
+      fill_in 'post[rationale]', with: 'User Association'
       click_on 'Save'
 
-      expect(User.last.posts.last.rationale).to eq("User Association")
+      expect(User.last.posts.last.rationale).to eq('User Association')
     end
   end
 end
