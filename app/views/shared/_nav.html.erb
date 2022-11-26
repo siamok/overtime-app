@@ -9,6 +9,9 @@
   <li class="<%= active?(posts_path) %>">
     <%= link_to "Time entries", posts_path %>
   </li>
+  <li class="<%= active?(new_post_path) %>">
+    <%= link_to "Add new entries", new_post_path, id: 'new_post_from_nav' %>
+  </li>
   <li class="<%= active?(edit_user_registration_path) %> pull-right">
     <%= link_to "Edit Account", edit_user_registration_path %>
   </li>
