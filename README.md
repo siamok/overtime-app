@@ -9,9 +9,6 @@ Project based on Udemy course: Professional Ruby on Rails coding course - with m
 - Email summary to managers for approval
 - Needs to be documented if employee did not log overtime
 
-## UI:
-- Bootstrap -> formatting
-
 ## Installation:
 Postgresql Installation on WSL2
 ```
