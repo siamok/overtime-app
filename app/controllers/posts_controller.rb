@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show, :edit, :update]
 
   def index
     @posts = Post.all
@@ -13,12 +13,22 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def edit; end
+
+  def update
+    if @post.update(post_params)
+      redirect_to @post, notice: 'Your post was updated successfully'
+    else
+      render :edit
+    end
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
     if @post.save
-      redirect_to @post, notice: 'Your post created successful'
+      redirect_to @post, notice: 'Your post was created successfully'
     else
       render :new
     end
