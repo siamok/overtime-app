@@ -45,7 +45,9 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'administrate', '~> 0.18.0'
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bourbon'
 gem 'cssbundling-rails'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'gritter', '1.2.0'
