@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
-gem 'rails', '~> 7.0.4'
+ruby '2.7.6'
+gem 'rails', '~> 6.1'
 gem 'sprockets-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
@@ -13,7 +13,7 @@ gem 'puma', '~> 5.0'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem 'turbo-rails'
+# gem 'turbo-rails'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
@@ -48,4 +48,5 @@ end
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'cssbundling-rails'
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'gritter', '1.2.0'
 gem 'jquery-rails'

@@ -1,4 +1,9 @@
 {
   "name": "app",
-  "private": "true"
+  "private": "true",
+  "dependencies": {
+    "@rails/ujs": "^7.0.4",
+    "gritter": "^1.7.4",
+    "jquery": "^3.6.1"
+  }
 }

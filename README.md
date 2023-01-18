@@ -1,6 +1,6 @@
 ## Overtime App
 Note:
-Project based on Udemy course: Professional Ruby on Rails coding course - with my touch to it and with Rails 7
+Project based on Udemy course: Professional Ruby on Rails coding course - with my touch to it
 
 ## Features:
 - Approval Workflow
