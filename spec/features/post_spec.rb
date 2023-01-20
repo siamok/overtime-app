@@ -50,7 +50,7 @@ describe 'navigate' do
       post
       visit posts_path
 
-      click_link("delete_post_#{post.id}_from_index")
+      click_button("delete_post_#{post.id}_from_index")
       expect(page.status_code).to eq(200)
     end
   end
