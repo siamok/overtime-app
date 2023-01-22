@@ -2,18 +2,24 @@
   <h1>Time Tracker</h1>
 </div>
 
-<ul class="custom-nav nav nav-tabs">
-  <li class="<%= active?(root_path) %>">
-    <%= link_to "Home", root_path %>
-  </li>
-  <li class="<%= active?(posts_path) %>">
-    <%= link_to "Time entries", posts_path %>
-  </li>
-  <li class="<%= active?(new_post_path) %>">
-    <%= link_to "Add new entries", new_post_path, id: 'new_post_from_nav' %>
-  </li>
-  <%= link_to "TODO: Admin dashboard", root_path %>
-  <li class="<%= active?(destroy_user_session_path) %> pull-right">
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  </li>
-</ul>
+<% if current_user %>
+  <ul class="custom-nav nav nav-tabs">
+    <li class="<%= active?(root_path) %>">
+      <%= link_to "Home", root_path %>
+    </li>
+    <li class="<%= active?(posts_path) %>">
+      <%= link_to "Time entries", posts_path %>
+    </li>
+    <li class="<%= active?(new_post_path) %>">
+      <%= link_to "Add new entries", new_post_path, id: 'new_post_from_nav' %>
+    </li>
+    
+    <% if current_user&.type == 'AdminUser' %>
+      <li><%= link_to "Admin dashboard", admin_root_path %></li>
+    <% end %>
+
+    <li class="<%= active?(destroy_user_session_path) %> pull-right">
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    </li>
+  </ul>
+<% end %>
