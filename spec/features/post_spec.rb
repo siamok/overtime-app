@@ -4,10 +4,12 @@ require 'rails_helper'
 
 describe 'navigate' do
   let(:user) { FactoryBot.create(:user) }
+  let(:another_user) { FactoryBot.create(:user, email: 'another@mail.com') }
   let(:non_authorized_user) { FactoryBot.create(:non_authorized_user) }
 
   let(:post) { FactoryBot.create(:post, user: user) }
-  let(:second_post) { FactoryBot.create(:second_post, user: user) }
+  let(:second_post) { FactoryBot.create(:post, date: Date.yesterday, rationale: 'Rationale2', user: user) }
+  let(:third_post) { FactoryBot.create(:post, rationale: 'Another User', user: another_user) }
 
   before do
     login_as(user, scope: :user)
@@ -32,6 +34,15 @@ describe 'navigate' do
 
       visit posts_path
       expect(page).to have_content(/Some rationale|Rationale2/)
+    end
+
+    it 'has a scope of post creator can see their posts' do
+      post
+      second_post
+      third_post
+
+      visit posts_path
+      expect(page).to_not have_content(/Another User/)
     end
   end
 
