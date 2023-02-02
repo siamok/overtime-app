@@ -15,7 +15,7 @@
     <%= status_label(post.status) %>
   </td>
   <td>
-    <%= link_to 'Edit', edit_post_path(post), id: "edit_#{post.id}" %>
+    <%= link_to 'Edit', edit_post_path(post), id: "edit_#{post.id}" if policy(post).update? %>
   </td>
   <td>
     <%= button_to 'Delete', post, confirm: 'Are you sure?',  method: :delete, id: "delete_post_#{post.id}_from_index" %>
