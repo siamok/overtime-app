@@ -29,6 +29,6 @@ FactoryBot.define do
   end
 
   sequence :phone do |n|
-    "#{n}".ljust(11, '0')
+    n.to_s.ljust(11, '0')
   end
 end

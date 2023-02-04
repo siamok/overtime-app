@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates_presence_of :first_name, :last_name, :phone
 
-  PHONE_REGEX = /\A[0-9]*\Z/
+  PHONE_REGEX = /\A[0-9]*\Z/.freeze
 
   validates_format_of :phone, with: PHONE_REGEX
   validates :phone, length: { is: 11 }
