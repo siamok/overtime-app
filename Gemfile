@@ -30,6 +30,7 @@ group :development, :test do
   gem 'byebug'
   gem 'database_cleaner-active_record'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'robocop'
   gem 'rspec-rails', '~> 3.0'
