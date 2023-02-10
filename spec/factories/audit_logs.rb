@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :audit_log do
-    user { nil }
-    status { 1 }
-    start_date { "2023-02-10" }
-    end_date { "2023-02-10" }
+    user
+    status { 0 }
+    start_date { 6.days.ago }
+    end_date { nil }
   end
 end
