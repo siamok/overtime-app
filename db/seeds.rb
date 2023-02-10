@@ -13,7 +13,7 @@ end
 pp 'Posts seeded'
 
 100.times do |_audit|
-  AuditLog.create!(user_id: User.last.id, status: 0, start_date: 6.days.ago)
+  AuditLog.create!(user_id: user.id, status: 0, start_date: 6.days.ago)
 end
 
 pp 'Audit logs seeded'
