@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :user do
     first_name { 'Test' }
     last_name { 'Test' }
-    email { 'test@test.com' }
+    email { generate(:email) }
     password { 'testtest' }
     password_confirmation { 'testtest' }
     phone
@@ -30,5 +30,9 @@ FactoryBot.define do
 
   sequence :phone do |n|
     n.to_s.ljust(11, '0')
+  end
+
+  sequence :email do |n|
+    "test#{n}@test.com"
   end
 end

@@ -1,5 +1,7 @@
 class AuditLogsController < ApplicationController
   def index
-    @audit_log = AuditLog.all
+    @audit_logs = AuditLog.all
+
+    authorize @audit_logs
   end
 end
