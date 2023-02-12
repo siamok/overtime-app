@@ -358,7 +358,6 @@ DEPENDENCIES
   rspec-rails (~> 3.0)
   sassc-rails
   selenium-webdriver
-  sprockets-rails
   stimulus-rails
   twilio-ruby (~> 4.11, >= 4.11.1)
   tzinfo-data
