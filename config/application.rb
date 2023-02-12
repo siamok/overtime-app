@@ -14,5 +14,6 @@ module OvertimeApp
     config.load_defaults 6.1
 
     config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths << Dir[Rails.root.join('app', 'policies', '*.rb')]
   end
 end
