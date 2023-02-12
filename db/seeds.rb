@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 employee = Employee.create(email: 'test@test.com', password: 'testtest', password_confirmation: 'testtest', first_name: 'Test',
-                   last_name: 'Test', phone: ENV['VERIFIED_NUMBER'])
+                           last_name: 'Test', phone: ENV['VERIFIED_NUMBER'])
 
 admin_user = AdminUser.create(email: 'admin@admin.com', password: 'adminadmin', password_confirmation: 'adminadmin', first_name: 'Admin',
                               last_name: 'Admin', phone: ENV['VERIFIED_NUMBER'])
