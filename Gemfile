@@ -55,4 +55,5 @@ gem 'gritter', '1.2.0'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.2.2'
 gem 'pundit', '~> 1.1'
+gem 'rails_12factor', group: :production
 gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
