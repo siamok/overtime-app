@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :audit_logs, except: %i[new edit destroy]
+  resources :audit_logs, except: %i[new edit destroy] do
+    member do
+      get :confirm
+    end
+  end
   namespace :admin do
     resources :users
     resources :admin_users
