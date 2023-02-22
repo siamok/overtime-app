@@ -9,12 +9,18 @@ class Post < ApplicationRecord
 
   scope :posts_by, ->(user) { where(user_id: user.id) }
 
-  after_save :update_audit_log
+  after_save :confirm_audit_log, if: :submitted?
+  after_save :unconfirm_audit_log, if: :rejected?
 
   private
 
-  def update_audit_log
+  def confirm_audit_log
     audit_log = AuditLog.where(user_id: user_id, start_date: (date - 7.days..date)).last
     audit_log&.confirmed!
+  end
+
+  def unconfirm_audit_log
+    audit_log = AuditLog.where(user_id: user_id, start_date: (date - 7.days..date)).last
+    audit_log&.pending!
   end
 end
