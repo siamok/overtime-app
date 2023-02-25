@@ -10,6 +10,10 @@ describe 'navigate' do
   let(:post) { FactoryBot.create(:post, user: user) }
   let(:second_post) { FactoryBot.create(:post, date: Date.yesterday, rationale: 'Rationale2', user: user) }
   let(:third_post) { FactoryBot.create(:post, rationale: 'Another User', user: another_user) }
+  let(:employee) do
+    Employee.create(email: 'test@testing.com', password: 'testtest', password_confirmation: 'testtest', first_name: 'Test',
+                    last_name: 'Testing', phone: '45646464504')
+  end
 
   before do
     login_as(user, scope: :user)
@@ -48,6 +52,8 @@ describe 'navigate' do
 
   describe 'new' do
     it 'has a link from the homepage' do
+      login_as(employee, scope: :user)
+
       visit root_path
 
       click_link('new_post_from_nav')

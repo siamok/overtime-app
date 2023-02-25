@@ -7,19 +7,12 @@
     <li class="<%= active?(root_path) %>">
       <%= link_to "", root_path, class: 'glyphicon glyphicon-home' %>
     </li>
-    <li class="<%= active?(posts_path) %>">
-      <%= link_to "Time entries", posts_path %>
-    </li>
 
-    <%= render 'shared/audit_log_tab' if policy(AuditLog).index? %>
+    <%= render 'shared/employee_nav_items' if employee? %>
 
-    <li class="<%= active?(new_post_path) %>">
-      <%= link_to "Request Overtime", new_post_path, id: 'new_post_from_nav' %>
-    </li>
-    
-    <% if current_user&.type == 'AdminUser' %>
-      <li><%= link_to "Admin dashboard", admin_root_path %></li>
-    <% end %>
+    <%= render 'shared/audit_log_tab' if admin? %>
+
+    <%= render 'shared/admin_dropdown' if admin? %>
 
     <li class="<%= active?(destroy_user_session_path) %> pull-right">
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
