@@ -46,4 +46,17 @@ describe User, type: :model do
       expect(user.full_name).to eq('TEST, TEST')
     end
   end
+
+  describe 'relationship between admins and employees' do
+    let(:employee_1) { FactoryBot.create(:user) }
+    let(:employee_2) { FactoryBot.create(:user) }
+    let(:admin_user) { FactoryBot.create(:admin_user) }
+
+    it 'allows for admins to be associated with multiple employees' do
+      Hand.create!(user_id: admin_user.id, hand_id: employee_1.id)
+      Hand.create!(user_id: admin_user.id, hand_id: employee_2.id)
+
+      expect(admin_user.hands.count).to eq(2)
+    end
+  end
 end
