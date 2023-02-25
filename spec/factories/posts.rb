@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :post do
     date { Date.today }
-    rationale { 'Some rationale' }
+    work_performed { 'work performed' }
     daily_hours { 3.5 }
   end
 end

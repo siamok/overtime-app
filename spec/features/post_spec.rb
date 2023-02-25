@@ -8,8 +8,8 @@ describe 'navigate' do
   let(:non_authorized_user) { FactoryBot.create(:non_authorized_user) }
 
   let(:post) { FactoryBot.create(:post, user: user) }
-  let(:second_post) { FactoryBot.create(:post, date: Date.yesterday, rationale: 'Rationale2', user: user) }
-  let(:third_post) { FactoryBot.create(:post, rationale: 'Another User', user: another_user) }
+  let(:second_post) { FactoryBot.create(:post, date: Date.yesterday, work_performed: 'work_performed2', user: user) }
+  let(:third_post) { FactoryBot.create(:post, work_performed: 'Another User', user: another_user) }
   let(:employee) do
     Employee.create(email: 'test@testing.com', password: 'testtest', password_confirmation: 'testtest', first_name: 'Test',
                     last_name: 'Testing', phone: '45646464504')
@@ -37,7 +37,7 @@ describe 'navigate' do
       second_post
 
       visit posts_path
-      expect(page).to have_content(/Some rationale|Rationale2/)
+      expect(page).to have_content(/work performed|work_performedormedormedormedormed2/)
     end
 
     it 'has a scope of post creator can see their posts' do
@@ -82,19 +82,19 @@ describe 'navigate' do
 
     it 'can be created from new form page' do
       fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: 'Rationale'
+      fill_in 'post[work_performed]', with: 'work_performed'
       fill_in 'post[daily_hours]', with: '2.5'
       expect { click_on 'Save' }.to change(Post, :count).by(1)
     end
 
     it 'will have a user associated with it' do
       fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: 'User Association'
+      fill_in 'post[work_performed]', with: 'User Association'
       fill_in 'post[daily_hours]', with: '2.5'
 
       click_on 'Save'
 
-      expect(User.last.posts.last.rationale).to eq('User Association')
+      expect(User.last.posts.last.work_performed).to eq('User Association')
     end
   end
 
@@ -103,7 +103,7 @@ describe 'navigate' do
       visit edit_post_path(post)
 
       fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: 'Edited content'
+      fill_in 'post[work_performed]', with: 'Edited content'
       click_on 'Save'
 
       expect(page).to have_content('Edited content')
