@@ -13,7 +13,7 @@ AuditLog.create!(user_id: employee.id, status: 0, start_date: 20.days.ago)
 pp 'Audit logs seeded'
 
 100.times do |post|
-  Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: employee.id, overtime_request: 2.5)
+  Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: employee.id, daily_hours: 2.5)
 end
 
 pp 'Posts seeded'
